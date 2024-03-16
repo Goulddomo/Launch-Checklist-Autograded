@@ -4,17 +4,17 @@
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
     // Here is the HTML formatting for our mission target div.
-    /*
-                 <h2>Mission Destination</h2>
+    document.getElementById('missionTarget').innerHTML =
+                ` <h2>Mission Destination</h2>
                  <ol>
-                     <li>Name: </li>
-                     <li>Diameter: </li>
+                     <li>Name: ${name}</li>
+                     <li>Diameter: ${diameter}</li>
                      <li>Star: ${star}</li>
-                     <li>Distance from Earth: </li>
-                     <li>Number of Moons: </li>
+                     <li>Distance from Earth: ${distance}</li>
+                     <li>Number of Moons: ${moons}</li>
                  </ol>
-                 <img src="">
-    */
+                 <img src="${imageUrl}">`
+
  }
  
  function validateInput(testInput) {
@@ -51,11 +51,11 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
  function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 // validate each input according to assignment specifications (carLevel needs to be number, etc.)[ALERT], then validate each input is qualified (cargoLevel is > 1000, etc.)[innerHTML]
 
-        if (validateInput(pilot.value) === "Empty" || validateInput(copilot.value) === "Empty" || validateInput(cargoLevel.value) === "Empty" || validateInput(cargoLevel.value) === "Empty" === "") {
+        if (validateInput(pilot) === "Empty" || validateInput(copilot) === "Empty" || validateInput(cargoLevel) === "Empty" || validateInput(cargoLevel) === "Empty" === "") {
             // alert("All fields are required!");
-        } if (validateInput(cargoLevel.value) === "Not a Number" || validateInput(fuelLevel.value) === "Not a Number") {
+        } if (validateInput(cargoLevel) === "Not a Number" || validateInput(fuelLevel) === "Not a Number") {
             // alert("Please enter the correct value for each form field!");
-        } if (validateInput(pilot.value) === !NaN || validateInput(copilot.value) === !NaN) {
+        } if (validateInput(pilot) === !NaN || validateInput(copilot) === !NaN) {
         // alert("Please enter the correct value for each form field!");
         }
         
@@ -124,6 +124,7 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
      let planetsReturned;
 //  chapter 27 for example
      planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then( function(response) {
+        console.log(response);
         return response.json()
         });
         return planetsReturned;
