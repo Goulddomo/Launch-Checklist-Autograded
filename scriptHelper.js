@@ -135,7 +135,6 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
  }
  
  function pickPlanet(planets) {
-    // planets = myfetch()
     let randomPlanet = Math.floor(Math.random() * planets.length);
     return planets[randomPlanet];
  }

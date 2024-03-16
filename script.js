@@ -13,7 +13,8 @@ window.addEventListener("load", function() {
         console.log(listedPlanets);
 
         // Below this comment call the appropriate helper functions to pick a planet fom the list of planets and add that information to your destination.
-        
+        target = pickPlanet();
+        addDestinationInfo(document, target.name, target.diameter, target.star, target.distance, target.moons, target.imageUrl);
     })
 
     // submit form, prevent the default, inside the form collect the values from the fields and pass them to form submission function
